@@ -14,28 +14,60 @@ async function toggleDropdown() {
     }
 }
 
+async function challengeData() { //This is fully AI and I have no clue what is going on
+    const baseURL = "https://btd6index.win";
 
-async function challengeData(params) { //mostly AI because i am not understanding
-    const a = Math.floor(Math.random * 2); //randomly selects one of the two categories
-    if (a == 0) endpoint = "fetch-2tc";
-    else endpoint = "fetch-2mp"
+    // randomly choose endpoint
+    const randomNum = Math.random();
+    const endpoint = randomNum < 0.5 ? "fetch-2tc" : "fetch-2mp"; //Like what the hell does this even mean
 
+    const params = new URLSearchParams({
+        query: "Ultra-Juggernaut",
+        count: 100
+    });
 
-    const baseURL = "btd6index.win";
-    const URL = `${baseURL}/${endpoint}`; //generates the proper URL
+    const url = `${baseURL}/${endpoint}?${params}`;
 
-    const response = await fetch('https://btd6index.win/fetch-2mp');
+    const response = await fetch(url);
 
-    if (!response.ok){ //checks if the fetch request went through
-        throw new (`HTTP ${response.status}`); 
+    if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
     }
 
-    console.log(response.json());
-    const outputData = await response.json();
+    const data = await response.json();
 
-    if(outputData.error){
-        throw new Error(outputData.error);
+    console.log(data);
+
+    if (!data.results || data.results.length === 0) {
+        throw new Error("No Ultra-Juggernaut completions found");
     }
 
-    return outputData;
+    // pick a random completion
+    const randomIndex = Math.floor(Math.random() * data.results.length);
+    const completion = data.results[randomIndex];
+
+    // extract needed fields
+    const map = completion.map;
+    const filekey = completion.filekey;
+
+    if (completion.link != null) {
+        challengeData();
+        return null;
+    }
+    // build link if needed
+    const link = completion.link ?? `https://media.btd6index.win/${filekey}`;
+    const challengeType = randomNum < 0.5 ? "2TC!" : "2MPC!";
+    var t = `${map} ${challengeType}`;
+    
+    document.getElementById("challengeImage 1").src = link;
+    document.getElementById("challengeText 1").innerText = t;
+    document.getElementById("panelFirst").display = "block";
+    
+    setTimeout(challengeData, 10000)
+    return {
+        map,
+        filekey,
+        link
+    };
+
 }

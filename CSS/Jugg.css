@@ -15,88 +15,198 @@ header {
     margin: 10px;
 }
 
-button {
-    font-size: xx-large;
+header {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border: 10px solid black;
+    background-color: black;
+    margin: 0px;
+    color: rgb(255, 153, 0);
+    margin-bottom: 2px;
+    font-size: small;
+}
+
+header a {
+    width: 35%;
+}
+
+header img {
+    width: 100%;
 }
 
 
-@media only screen and (orientation: portrait) {
+body {
+    background-color: gray;
+    text-align: center;
+}
+
+
+div.borgir {
+    width: 35%;
+}
+
+div.borgir img {
+    width: 100%;
+}
+
+header nav{
+    display:none;
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: gray;
+    color: rgb(255, 153, 0);
+    text-align: center;
+    gap: 2px;
+
+}
+
+.navItem {
+    color: rgb(255, 153, 0);
+    font-size: large;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(64, 65, 65);
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.challenges {
+    border-top: 5px solid black;
+    display: flex;
+    width: 100%;
+    background-color: black;
+    color: rgb(255, 153, 0);
+    font-size: large;
+}
+
+
+.challengePanel img {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.gapRemover {
+    background-color: black;
+}
+
+.statSheet {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: rgb(255, 153, 0);
+    height: auto;
+}
+
+.statSheet p {
+    padding: 5px;
+}
+
+.statText {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.statSheet img {
+    width: 40%;
+
+}
+
+.statSheet.Left {
+    flex-direction: row;
+    justify-content: left;
+}
+
+.statSheet.Right {
+    flex-direction: row-reverse;
+    justify-content: right;
+}
+
+.statText.Crosspaths {
+    width: 80%;
+}
+
+.Crosspaths img {
+    width: 20%;
+}
+
+
+
+@media only screen and (orientation: landscape) {
     header {
         height: fit-content;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        text-align: center;
-        border: 20px solid black;
+        justify-content: space-evenly;
+        border: 5px solid black;
         background-color: black;
-        margin: 0px;
-        color: rgb(255, 153, 0);
-        margin-bottom: 10px;
+        font-size: xx-large;
     }
 
+    header a {
+        width: 10%;
+    }
+    header div.container{
+        width:40%;
+    }
+
+
     body {
-        background-color: gray;
+        border: 5px solid black;
     }
 
 
     div.borgir {
-
-        height: 100%;
+        display:none;
+        width: 10%;
     }
 
-    nav {
-        display: none;
-        flex-direction: column;
-        justify-content: space-evenly;
-        font-size: 50px;
+    header nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
         background-color: gray;
         color: rgb(255, 153, 0);
         text-align: center;
-        height: 500px;
-
+        gap: 2px;
+        width: 30%;
+        justify-self: flex-end;
     }
 
     .navItem {
-        color: rgb(255, 153, 0);
-        text-decoration: none;
-        display: flex;
-        height: 30%;
-        text-align: center;
-        text-justify: center;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(64, 65, 65);
-        padding: 5px;
-    }
-
-    main {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        text-align: center;
+        width: fit-content;
     }
 
     .challenges {
-        display: flex;
-        width: 100%;
+        border: 5px solid black;
+        width: 60%;
         background-color: black;
-        color: rgb(255, 153, 0);
-        height: fit-content;
+        font-size: xx-large;
     }
 
-
-
-    .challengePanel img{
-        height:100%;
-        width: 100%;
-        object-fit: contain;
+    .statText{
+        font-size:xx-large;
     }
 }
