@@ -4,35 +4,41 @@
 <head>
     <title>Ultra-Juggernaut Supremacy</title>
     <link href="CSS/Jugg.css" rel="stylesheet">
-    <meta charset="UTF-8">
     <script src="JS/Ultra.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <header>
-        <img src="CSS/bilderHTML/5-0-0 Upgrade Icon.png" width="230px">
-        <h1>Ultra-Juggernaut</h1>
+        <a href="index.html"><img src="CSS/bilderHTML/5-0-0 Upgrade Icon.png"></a>
+        <div class="container"><h1>Ultra-Juggernaut</h1></div>
         <div class="borgir">
-            <img src="CSS/bilderHTML/LossBurger.png" id="borgir" onclick="toggleDropdown()" width="230px">
+            <img src="CSS/bilderHTML/LossBurger.png" id="borgir" onclick="toggleDropdown()">
         </div>
-    </header>
-    <nav id="navDropdown">
+        <nav>
         <a href="placeholder" class="navItem">Why use<br> Ultra-Juggernaut?</a>
-        <a href="placeholder" class="navItem">Stats of the almighty <br>Ultra-Juggernaut</a>
+        <a href="stats.html" class="navItem">Stats of the almighty <br>Ultra-Juggernaut</a>
         <a href="placeholder" class="navItem">Good maps for<br> Ultra-Juggernaut</a>
     </nav>
-    <main>
+    </header>
+    <nav id="navDropdown" style="display: none">
+        <a href="placeholder" class="navItem">Why use<br> Ultra-Juggernaut?</a>
+        <a href="stats.html" class="navItem">Stats of the almighty <br>Ultra-Juggernaut</a>
+        <a href="placeholder" class="navItem">Good maps for<br> Ultra-Juggernaut</a>
+    </nav>
+
+    <main >
+        <h1 class="title">Challenges with<br> Ultra-Juggernaut</h1>
         <div class="challenges">
-            <h1>Challenges completed with Ultra-Juggernaut</h1>
-            <article class="challengePanel centerImage">
-                <img src="CSS/bilderHTML/Completion.png">
-                <p>Castle Revenge 2MPC!</p>
+
+            <article class="challengePanel" id="panelFirst" onclick="challengeData()">
+                <img id="challengeImage 1" src="https://media.btd6index.win/779116d8-f597-455b-be9f-3ae1caff6837">
+                <p id="challengeText 1">Middle of the Road 2TC!</p>
             </article>
         </div>
-        <button onclick="challengeData()">Test</button>
     </main>
-    
+
 </body>
 
 </html>
